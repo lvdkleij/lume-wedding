@@ -8,6 +8,7 @@ on:
 
 jobs:
   migrate:
+    environment: production
     runs-on: ubuntu-latest
     env:
       SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
@@ -19,8 +20,6 @@ jobs:
       - uses: supabase/setup-cli@v1
         with:
           version: latest
-      - run: |
-          echo "$SUPABASE_PROJECT_ID"
 
       - run: supabase link --project-ref $SUPABASE_PROJECT_ID
       - run: supabase db push

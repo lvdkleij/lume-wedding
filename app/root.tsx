@@ -1,6 +1,6 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useParams } from 'react-router';
 
-import i18n from './i18n';
+import i18n from './utils/i18n';
 import { I18nextProvider } from 'react-i18next';
 
 import type { Route } from './+types/root';

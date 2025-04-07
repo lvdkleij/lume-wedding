@@ -85,3 +85,10 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 ---
 
 Built with ❤️ using React Router.
+
+Music (embed spotify and allow guests to add songs in our 'suggestions' playlist)
+Menu (allow guests to select their preferred courses and provide dietary restrictions)
+Activity (allow guests to ... for activity)
+Manier van reizen? (let us know )
+
+supabase gen types typescript --local > app/utils/database.types.ts

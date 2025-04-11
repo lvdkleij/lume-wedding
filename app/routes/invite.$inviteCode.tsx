@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { supabaseServer } from '~/utils/supabase.server';
 import type { Route } from './+types/invite.$inviteCode';
+import i18n from 'i18next';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const inviteCode = params.inviteCode;
@@ -24,6 +25,10 @@ export async function loader({ params }: Route.LoaderArgs) {
     throw new Response('Invite not found', { status: 404 });
   }
 
+  const preferredLanguage = invite.guest.preferredLanguage;
+
+  i18n.changeLanguage(preferredLanguage);
+
   return {
     invite,
   };
@@ -35,7 +40,10 @@ export default function InvitePage({ loaderData }: Route.ComponentProps) {
 
   const preferredLanguage = invite.guest.preferredLanguage;
 
-  i18n.changeLanguage(preferredLanguage);
+  if (i18n.language !== preferredLanguage) {
+    console.log('lala');
+    i18n.changeLanguage(preferredLanguage);
+  }
 
   return (
     <div>

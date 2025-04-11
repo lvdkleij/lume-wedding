@@ -41,7 +41,6 @@ export default function InvitePage({ loaderData }: Route.ComponentProps) {
   const preferredLanguage = invite.guest.preferredLanguage;
 
   if (i18n.language !== preferredLanguage) {
-    console.log('lala');
     i18n.changeLanguage(preferredLanguage);
   }
 

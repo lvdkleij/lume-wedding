@@ -1,3 +1,6 @@
+drop table invites
+drop table invitees
+
 create table guests (
   id uuid primary key default gen_random_uuid(),
   name text not null,
@@ -8,7 +11,6 @@ create table guests (
 create table invites (
   id uuid primary key default gen_random_uuid(),
   code text unique not null, -- used in the URL
-  message_translations jsonb,
   guest_id uuid unique not null references guests(id) on delete cascade,
   updated_at timestamptz default now(),
   created_at timestamptz default now()

@@ -1,5 +1,5 @@
-drop table invites
-drop table invitees
+drop table invites;
+drop table invitees;
 
 create table guests (
   id uuid primary key default gen_random_uuid(),

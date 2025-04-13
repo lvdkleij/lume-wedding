@@ -16,10 +16,5 @@ select
     when 'John Smith' then 'john2025'
     when 'Luca Bianchi' then 'luca2025'
   end as code,
-  case name
-    when 'Alice Dupont' then '{"en": "Welcome Alice!", "fr": "Bienvenue Alice!"}'::jsonb
-    when 'John Smith' then '{"en": "Hi John, you’re invited!"}'::jsonb
-    when 'Luca Bianchi' then '{"it": "Ciao Luca, sei invitato!"}'::jsonb
-  end as message_translations,
   id as guest_id
 from inserted_guests;

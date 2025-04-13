@@ -15,7 +15,6 @@ export async function loader({ params }: Route.LoaderArgs) {
     .select(
       `
       code, 
-      messageTranslations:message_translations, 
       guest:guest_id(name, preferredLanguage:preferred_language)`
     )
     .eq('code', inviteCode)

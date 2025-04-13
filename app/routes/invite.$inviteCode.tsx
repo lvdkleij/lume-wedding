@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { supabaseServer } from '~/utils/supabase.server';
 import type { Route } from './+types/invite.$inviteCode';
 import i18n from 'i18next';
+import { SpotifyPlaylistManager } from '~/components/SpotifyPlaylistManager';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const inviteCode = params.inviteCode;
@@ -14,6 +15,7 @@ export async function loader({ params }: Route.LoaderArgs) {
     .from('invites')
     .select(
       `
+      code, 
       guest:guest_id(name, preferredLanguage:preferred_language)`
     )
     .eq('code', inviteCode)
@@ -46,6 +48,7 @@ export default function InvitePage({ loaderData }: Route.ComponentProps) {
     <div>
       <h1>{t('greeting')}</h1>
       <p>{t('inviteMessage')}</p>
+      <SpotifyPlaylistManager />
     </div>
   );
 }

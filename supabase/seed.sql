@@ -9,7 +9,7 @@ with inserted_guests as (
 )
 
 -- Insert invites using the returned guest IDs
-insert into invites (code, message_translations, guest_id)
+insert into invites (code, guest_id)
 select
   case name
     when 'Alice Dupont' then 'alice2025'

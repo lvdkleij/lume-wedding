@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabaseServer } from '~/utils/supabase.server';
 import type { Route } from './+types/invite.$inviteCode';
@@ -7,7 +8,10 @@ import 'swiper/css';
 import 'swiper/css/parallax';
 import 'swiper/css/mousewheel';
 import { HeroSection } from '~/sections/HeroSection';
+import { ScheduleSection } from '~/sections/ScheduleSection';
+import { VenueSection } from '~/sections/VenueSection';
 import { InviteMessage } from '~/sections/InviteMessage';
+import { Overlay } from '~/components/Overlay';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const inviteCode = params.inviteCode;
@@ -21,7 +25,7 @@ export async function loader({ params }: Route.LoaderArgs) {
     .select(
       `
       code, 
-      guest:guest_id(name, preferredLanguage:preferred_language)`
+      guest:guest_id(id, name, preferredLanguage:preferred_language)`
     )
     .eq('code', inviteCode)
     .single();
@@ -30,26 +34,28 @@ export async function loader({ params }: Route.LoaderArgs) {
     throw new Response('Invite not found', { status: 404 });
   }
 
-  const preferredLanguage = invite.guest.preferredLanguage;
-  i18n.changeLanguage(preferredLanguage);
-
   return { invite };
 }
 
 export default function InvitePage({ loaderData }: Route.ComponentProps) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { invite } = loaderData;
 
   const preferredLanguage = invite.guest.preferredLanguage;
-  if (i18n.language !== preferredLanguage) {
-    i18n.changeLanguage(preferredLanguage);
-  }
+
+  useEffect(() => {
+    if (i18n.language !== preferredLanguage) {
+      i18n.changeLanguage(preferredLanguage);
+    }
+  }, [preferredLanguage, i18n]);
 
   return (
-    <>
+    <article className="bg-[url(/image/background.jpg)]">
+      <Overlay />
       <HeroSection />
       <InviteMessage />
-      <div className="h-[4000px] w-full">ddasda</div>
-    </>
+      <ScheduleSection />
+      <VenueSection />
+    </article>
   );
 }

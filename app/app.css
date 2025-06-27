@@ -3,25 +3,26 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
-@import './assets/fonts/Voyage-Regular.css';
+@import './assets/fonts/FoundersGrotesk.css';
+@import './assets/fonts/Canela.css';
+@import './assets/fonts/Voyage.css';
+@import './assets/fonts/KarolSans.css';
 
 @layer base {
   :root {
-    --font-serif: 'Voyage-Regular', serif;
-    --wedding-cream: #fdf6f0;
+    --wedding-cream: #f3f2f1;
     --wedding-charcoal: #333333;
 
-    /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    /* @link https://utopia.fyi/type/calculator?c=360,16,1.333,1240,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem);
-    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087cqi, 1rem);
-    --step-0: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
-    --step-1: clamp(1.35rem, 1.2761rem + 0.3696cqi, 1.5625rem);
-    --step-2: clamp(1.62rem, 1.5041rem + 0.5793cqi, 1.9531rem);
-    --step-3: clamp(1.944rem, 1.771rem + 0.8651cqi, 2.4414rem);
-    --step-4: clamp(1.2rem, 1.2rem + 2.304cqi, 3.0518rem);
-    --step-5: clamp(1.5rem, 1.5rem + 8.7658cqi, 10rem);
-    --step-7: clamp(1.5rem, 1.5rem + 20.7658cqi, 30rem);
+    --step--2: clamp(0.5628rem, 0.5373rem + 0.1135vw, 0.6252rem);
+    --step--1: clamp(0.7502rem, 0.6954rem + 0.2433vw, 0.884rem);
+    --step-0: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+    --step-1: clamp(1.333rem, 1.1553rem + 0.79vw, 1.7675rem);
+    --step-2: clamp(1.7769rem, 1.4814rem + 1.3134vw, 2.4992rem);
+    --step-3: clamp(2.3686rem, 1.8919rem + 2.1188vw, 3.5339rem);
+    --step-4: clamp(3.1573rem, 2.4048rem + 3.3448vw, 4.997rem);
+    --step-5: clamp(4.2087rem, 3.04rem + 5.1946vw, 7.0657rem);
 
     /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
     --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
@@ -50,7 +51,7 @@
     /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
     --grid-max-width: 100rem;
-    --grid-gutter: var(--space-s-m, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
+    --grid-gutter: var(--space-xs-s, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
     --grid-columns: 12;
   }
 
@@ -62,34 +63,76 @@
 
   .u-grid {
     display: grid;
-    /* gap: var(--grid-gutter); */
     grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gutter);
   }
 
   html,
   body {
     overflow-x: hidden;
     overflow-y: scroll;
+    font-family: 'Karol Sans', sans-serif;
   }
 
   body {
     background-color: var(--wedding-cream);
-    color: var(--wedding-charcoal);
-    font-family: var(--font-serif);
+    /* color: var(--wedding-charcoal); */
   }
 
-  .headline {
-    font-size: var(--font-size-6);
+  .heading-1 {
+    font-family: 'Karol Sans', sans-serif;
+    color: #211d1d;
+    font-size: var(--step-5);
+    line-height: 1;
+    /* letter-spacing: -0.08333vw; */
+    font-weight: 500;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-serif);
-    font-weight: normal;
+  .heading-2 {
+    font-family: 'Karol Sans', sans-serif;
+    color: #211d1d;
+    font-size: var(--step-4);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    font-weight: 300;
+  }
+
+  /* Body Text */
+  .body {
+    font-family: 'Karol Sans', sans-serif;
+    color: #211d1d;
+    font-size: var(--step-0);
+    line-height: 1.48;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+
+  .eyebrow {
+    font-family: 'Founders Grotesk' sans-serif;
+    color: #284135;
+    font-size: var(--step--1);
+    line-height: 1;
+    /* letter-spacing: 0.02778vw; */
+    font-weight: 500;
+  }
+
+  .body-md {
+    font-size: var(--step--1);
+    font-weight: 400;
+  }
+
+  .caption {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  /* Display / Hero */
+  .display {
+    font-size: var(--step-7);
+    font-weight: 800;
+    line-height: 1.1;
   }
 
   h3 {

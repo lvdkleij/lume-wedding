@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('./FoundersGrotesk-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Founders Grotesk';
+  src: url('./FoundersGrotesk-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}

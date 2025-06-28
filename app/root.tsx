@@ -6,6 +6,7 @@ import { I18nextProvider } from 'react-i18next';
 import type { Route } from './+types/root';
 import './app.css';
 import { useEffect } from 'react';
+import { useMotionValueEvent, useScroll, useSpring } from 'motion/react';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

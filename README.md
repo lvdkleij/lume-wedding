@@ -94,3 +94,10 @@ Manier van reizen? (let us know )
 supabase gen types typescript --local > app/utils/database.types.ts
 
 https://isleofskyedistillers.com/
+https://www.awwwards.com/sites/hotel-spa-resort-kaskady
+https://marieguillaume.com/weddings
+https://www.michelleandtonye.com/
+https://veleyross.wedding/
+https://sunnybonnell.com/
+https://www.awwwards.com/websites/minimal/
+https://www.eriro.at/en/

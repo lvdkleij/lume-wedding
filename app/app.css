@@ -3,72 +3,144 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
+@import './assets/fonts/FoundersGrotesk.css';
+@import './assets/fonts/Canela.css';
+@import './assets/fonts/Voyage.css';
+@import './assets/fonts/KarolSans.css';
 
 @layer base {
   :root {
-    /* Radius */
-    --radius: 0.5rem;
+    --wedding-cream: #f3f2f1;
+    --wedding-charcoal: #333333;
 
-    /* Colours – system */
-    --border: 240 5% 91%;
-    --input: 240 5% 91%;
-    --ring: 240 4.8% 95.9%;
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* @link https://utopia.fyi/type/calculator?c=360,16,1.333,1240,20,1.414,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --step--2: clamp(0.5628rem, 0.5373rem + 0.1135vw, 0.6252rem);
+    --step--1: clamp(0.7502rem, 0.6954rem + 0.2433vw, 0.884rem);
+    --step-0: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+    --step-1: clamp(1.333rem, 1.1553rem + 0.79vw, 1.7675rem);
+    --step-2: clamp(1.7769rem, 1.4814rem + 1.3134vw, 2.4992rem);
+    --step-3: clamp(2.3686rem, 1.8919rem + 2.1188vw, 3.5339rem);
+    --step-4: clamp(3.1573rem, 2.4048rem + 3.3448vw, 4.997rem);
+    --step-5: clamp(4.2087rem, 3.04rem + 5.1946vw, 7.0657rem);
 
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 240 5% 91%;
-    --sidebar-ring: 240 4.8% 95.9%;
+    /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087cqi, 0.625rem);
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087cqi, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261cqi, 1.875rem);
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348cqi, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522cqi, 3.75rem);
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696cqi, 5rem);
+    --space-3xl: clamp(2.75rem, 2.4891rem + 5.3043vw, 9.5rem);
 
-    /* Wedding colours */
-    --wedding-cream: #f8f3e6;
-    --wedding-gold: #d4af37;
-    --wedding-light-gold: #f4e9cd;
-    --wedding-champagne: #f7e7ce;
-    --wedding-ivory: #fffff0;
-    --wedding-rose: #f8e2e2;
-    --wedding-blush: #f7cec5;
-    --wedding-charcoal: #2f4f4f;
+    /* One-up pairs */
+    --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435cqi, 0.625rem);
+    --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522cqi, 0.9375rem);
+    --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522cqi, 1.25rem);
+    --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043cqi, 1.875rem);
+    --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413cqi, 2.5rem);
+    --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087cqi, 3.75rem);
+    --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261cqi, 5rem);
+    --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174cqi, 7.5rem);
+
+    /* Custom pairs */
+    --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913cqi, 2.5rem);
+
+    /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    --grid-max-width: 100rem;
+    --grid-gutter: var(--space-xs-s, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
+    --grid-columns: 12;
+  }
+
+  .atlas-container {
+    max-width: var(--grid-max-width);
+    padding-inline: var(--grid-gutter);
+    margin-inline: auto;
+  }
+
+  .atlas-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gutter);
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    background-color: var(--wedding-cream);
-    color: var(--wedding-charcoal);
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    font-family: 'Karol Sans', sans-serif;
+    background-image: url(/image/background.jpg);
+    overflow-y: hidden;
+    color: #211d1d;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif font-light tracking-wide;
+  .heading-1 {
+    font-size: var(--step-5);
+    line-height: 1;
+    font-weight: 500;
   }
-}
 
-@theme {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  .heading-2 {
+    font-size: var(--step-4);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+    font-weight: 300;
+  }
+
+  .heading-3 {
+    font-size: var(--step-3);
+    letter-spacing: 0.05em;
+    line-height: 1.14;
+  }
+
+  .text {
+    font-size: var(--step-0);
+    line-height: 1.48;
+    letter-spacing: 0;
+    font-weight: 300;
+  }
+
+  .caption {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .link-detail {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+  }
+
+  .eyebrow {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  .quote {
+    font-size: var(--step-3);
+    letter-spacing: 0.04em;
+    line-height: 0.97;
+    font-weight: 400;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
 }

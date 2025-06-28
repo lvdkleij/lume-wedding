@@ -60,7 +60,7 @@ export const VenueSection: React.FC = () => {
             ></div>
           </motion.picture>
         </div>
-        <div className="col-start-2 col-span-5 lg:col-span-3 row-start-4 lg:row-start-2">
+        <div className="col-start-1 sm:col-start-2 col-span-6 max-sm:-ml-4 sm:col-span-5 lg:col-span-3 row-start-4 lg:row-start-2">
           <motion.picture style={isLarge ? { y: y2 } : {}} className="relative block">
             <source srcSet="/image/lacoste-1.avif" type="image/avif" />
             <motion.img
@@ -81,7 +81,7 @@ export const VenueSection: React.FC = () => {
             ></div>
           </motion.picture>
         </div>
-        <div className="col-start-7 lg:col-start-8 col-span-5 lg:col-span-3 lg:mt-[6rem] row-start-3 lg:row-start-2">
+        <div className="col-start-1 sm:col-start-7 lg:col-start-8 col-span-full sm:col-span-5 lg:col-span-3 lg:mt-[6rem] row-start-3 lg:row-start-2">
           <h2 className="heading-3">The venue</h2>
           <p className="text mt-[1rem]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
@@ -95,7 +95,7 @@ export const VenueSection: React.FC = () => {
             To the venue
           </a>
         </div>
-        <div className="col-start-3 lg:col-start-2 col-span-5 lg:col-span-3 lg:mt-[12rem] row-start-6 lg:row-start-3">
+        <div className="col-start-1 sm:col-start-3 lg:col-start-2 col-span-full sm:col-span-5 lg:col-span-3 lg:mt-[12rem] row-start-6 lg:row-start-3">
           <h2 className="heading-3">The lodging</h2>
           <p className="text mt-[1rem]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
@@ -103,7 +103,7 @@ export const VenueSection: React.FC = () => {
             accusantium dolorum voluptas.
           </p>
         </div>
-        <div className="col-start-5 lg:col-start-8 col-span-8 lg:col-span-5 row-start-5 lg:row-start-4">
+        <div className="col-start-4 sm:col-start-5 lg:col-start-8 col-span-9 sm:col-span-8 lg:col-span-5 row-start-5 lg:row-start-4">
           <motion.picture style={isLarge ? { y: y3 } : {}} className="relative block">
             <source srcSet="/image/lacoste-3.avif" type="image/avif" />
             <motion.img

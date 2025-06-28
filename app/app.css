@@ -82,18 +82,22 @@
   }
 
   .heading-1 {
-    font-family: 'Karol Sans', sans-serif;
     font-size: var(--step-5);
     line-height: 1;
     font-weight: 500;
   }
 
   .heading-2 {
-    font-family: 'Karol Sans', sans-serif;
     font-size: var(--step-4);
     line-height: 0.9;
     letter-spacing: 0.03em;
     font-weight: 300;
+  }
+
+  .heading-3 {
+    font-size: var(--step-3);
+    letter-spacing: 0.05em;
+    line-height: 1.14;
   }
 
   .text {

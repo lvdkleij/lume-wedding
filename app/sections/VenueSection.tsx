@@ -1,9 +1,12 @@
 import type React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 export const VenueSection: React.FC = () => {
   const ref = useRef(null);
+
+  const isLarge = useIsLargeScreen();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -35,7 +38,7 @@ export const VenueSection: React.FC = () => {
           <br />
         </h1>
         <div className="atlas-grid grid-cols-12 lg:grid-cols-6 col-start-1 lg:col-start-7 col-span-full lg:col-span-7 row-start-2 lg:row-start-1">
-          <motion.picture style={{ y: y }} className="relative block col-span-full">
+          <motion.picture style={isLarge ? { y: y } : {}} className="relative block col-span-full">
             <source srcSet="/image/lacoste-2.avif" type="image/avif" />
             <motion.img
               src="/image/sample.jpg"
@@ -58,7 +61,7 @@ export const VenueSection: React.FC = () => {
           </motion.picture>
         </div>
         <div className="col-start-2 col-span-5 lg:col-span-3 row-start-4 lg:row-start-2">
-          <motion.picture style={{ y: y2 }} className="relative block">
+          <motion.picture style={isLarge ? { y: y2 } : {}} className="relative block">
             <source srcSet="/image/lacoste-1.avif" type="image/avif" />
             <motion.img
               alt="Sample"
@@ -79,7 +82,7 @@ export const VenueSection: React.FC = () => {
           </motion.picture>
         </div>
         <div className="col-start-7 lg:col-start-8 col-span-5 lg:col-span-3 lg:mt-[6rem] row-start-3 lg:row-start-2">
-          <h2 className="eyebrow">The venue</h2>
+          <h2 className="heading-3">The venue</h2>
           <p className="text mt-[1rem]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
             eligendi eius iure omnis sint officia facilis. Sit nam ipsam tenetur adipisci praesentium beatae amet
@@ -93,7 +96,7 @@ export const VenueSection: React.FC = () => {
           </a>
         </div>
         <div className="col-start-3 lg:col-start-2 col-span-5 lg:col-span-3 lg:mt-[12rem] row-start-6 lg:row-start-3">
-          <h2 className="eyebrows">The lodging</h2>
+          <h2 className="heading-3">The lodging</h2>
           <p className="text mt-[1rem]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
             eligendi eius iure omnis sint officia facilis. Sit nam ipsam tenetur adipisci praesentium beatae amet
@@ -101,7 +104,7 @@ export const VenueSection: React.FC = () => {
           </p>
         </div>
         <div className="col-start-5 lg:col-start-8 col-span-8 lg:col-span-5 row-start-5 lg:row-start-4">
-          <motion.picture style={{ y: y3 }} className="relative block">
+          <motion.picture style={isLarge ? { y: y3 } : {}} className="relative block">
             <source srcSet="/image/lacoste-3.avif" type="image/avif" />
             <motion.img
               alt="Sample"
@@ -124,3 +127,19 @@ export const VenueSection: React.FC = () => {
     </section>
   );
 };
+
+function useIsLargeScreen() {
+  const [isLarge, setIsLarge] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    const handleChange = () => setIsLarge(mediaQuery.matches);
+
+    handleChange(); // Set initial value
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  return isLarge;
+}

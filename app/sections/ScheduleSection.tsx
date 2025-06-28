@@ -3,8 +3,8 @@ import { LabeledLayout } from '~/components/LabeledLayout';
 
 export const ScheduleSection: React.FC = () => {
   return (
-    <section className="u-container bg-[#F3F2F1]">
-      <section className="u-grid">
+    <section className="atlas-container bg-[#F3F2F1]">
+      <section className="atlas-grid">
         {/* <LabeledLayout
           className="col-start-4 col-span-3 row-start-1 row-span-3"
           eyebrow="the date"

@@ -50,12 +50,12 @@ export default function InvitePage({ loaderData }: Route.ComponentProps) {
   }, [preferredLanguage, i18n]);
 
   return (
-    <article className="bg-[url(/image/background.jpg)]">
+    <>
       <Overlay />
       <HeroSection />
       <InviteMessage />
       <ScheduleSection />
       <VenueSection />
-    </article>
+    </>
   );
 }

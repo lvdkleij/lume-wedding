@@ -10,98 +10,116 @@ export const VenueSection: React.FC = () => {
     offset: ['start end', 'end start'],
   });
 
-  // Make the right image move up faster
-  const y = useTransform(scrollYProgress, [0, 3], ['10%', '-40%']);
+  const y = useTransform(scrollYProgress, [0, 4], ['10%', '-200%']);
+  const y2 = useTransform(scrollYProgress, [0, 3], ['50%', '-50%']);
+  const y3 = useTransform(scrollYProgress, [0, 2], ['20%', '-150%']);
 
   return (
-    <section ref={ref} className="u-container mt-[24rem] bg-[#F3F2F1]">
-      <section className="u-grid">
-        <h2 className="heading-2 col-start-1 row-start-1 col-span-4 self-center">
+    <section ref={ref} className="atlas-container mt-[24rem]">
+      <section className="atlas-grid">
+        <h2 className="heading-2 col-start-1 row-start-1 col-span-10 lg:col-span-4 self-end lg:self-center flex flex-col">
           <span>Chateau </span>
           <span>de Lacoste</span>
         </h2>
-        <div className="u-grid grid-cols-8 col-start-5 col-span-8 row-start-1">
-          <h1
-            className="flex caption items-end col-span-1 col-start-1 origin-center rotate-180 mt-[40%]"
-            style={{
-              writingMode: 'vertical-rl',
-              textOrientation: 'mixed',
-              height: 'fit-content',
-            }}
-          >
-            the Zugspitze peak rises dramatically
-            <br />
-            over Alpine pastures
-            <br />
-          </h1>
-          <div className="col-start-2 col-span-7">
-            <motion.picture style={{ y: y }} className="relative block">
-              <source srcSet="/image/lacoste-2.avif" type="image/avif" />
-              <img
-                src="/image/sample.jpg"
-                alt="Sample"
-                className="object-cover block"
-                style={{
-                  aspectRatio: '1.3',
-                  height: '100%',
-                  width: '100%,',
-                }}
-              />
-            </motion.picture>
-          </div>
-        </div>
-        {/* <div className="relative col-span-full row-start-2 h-[45rem]">
-          <picture className="absolute w-1/2 left-0 z-10">
-            <source srcSet="/image/lacoste-1.avif" type="image/avif" />
-            <img src="/image/sample.jpg" alt="Sample" />
-          </picture>
-          <motion.picture style={{ y: y }} className="absolute w-7/12 right-0 top-[0rem]">
+        <h1
+          className="flex caption items-end col-span-1 col-start-12 lg:col-start-6 row-start-1 origin-center rotate-180 mt-[40%]"
+          style={{
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
+            height: 'fit-content',
+          }}
+        >
+          the Zugspitze peak rises dramatically
+          <br />
+          over Alpine pastures
+          <br />
+        </h1>
+        <div className="atlas-grid grid-cols-12 lg:grid-cols-6 col-start-1 lg:col-start-7 col-span-full lg:col-span-7 row-start-2 lg:row-start-1">
+          <motion.picture style={{ y: y }} className="relative block col-span-full">
             <source srcSet="/image/lacoste-2.avif" type="image/avif" />
-            <img src="/image/sample.jpg" alt="Sample" />
+            <motion.img
+              src="/image/sample.jpg"
+              alt="Sample"
+              className={`object-cover block`}
+              style={{
+                aspectRatio: '1.3',
+                height: '100%',
+                width: '100%,',
+              }}
+            />
+
+            <div
+              className="absolute left-0 top-0 h-full w-full"
+              style={{
+                backgroundColor: '#B0B0B0',
+                opacity: 0.1,
+              }}
+            ></div>
           </motion.picture>
-        </div> */}
-        {/* <LabeledLayout
-          className="col-start-1 sm:col-start-3 md:col-start-3 lg:col-start-3 col-span-full sm:col-span-10 md:col-span-8 lg:col-span-6 row-start-3"
-          eyebrow="the venue"
-          mainText={
-            <h2 className="heading-2 flex flex-col ">
-              <span>Lieu dit,</span>
-              <span>24250 Castelnaud-la-Chapelle,</span>
-              <span>France</span>
-            </h2>
-          }
-        ></LabeledLayout>
-        <LabeledLayout
-          className="col-start-1 sm:col-start-10 md:col-start-10 lg:col-start-10 col-span-full sm:col-span-10 md:col-span-8 lg:col-span-6 row-start-4"
-          eyebrow="the travel"
-          mainText={
-            <h2 className="heading-2 flex flex-col ">
-              <span>Friday</span>
-              <span>June 12-14</span>
-              <span>2026</span>
-            </h2>
-          }
-        ></LabeledLayout>
-        <LabeledLayout
-          eyebrow="the lodging"
-          mainText={
-            <p className="body">
-              Dear Amandine, Join us in celebrating as Melisa Duman and Lucas van der Kleij say “I do” at the beautiful
-              Château de Lacoste, Dordogne, France.
-            </p>
-          }
-          className="col-start-1 sm:col-start-17 md:col-start-16 lg:col-start-16 col-span-full sm:col-span-8 md:col-span-6 row-start-5"
-        ></LabeledLayout>
-        <LabeledLayout
-          eyebrow="the activities"
-          mainText={
-            <p className="body">
-              Dear Amandine, Join us in celebrating as Melisa Duman and Lucas van der Kleij say “I do” at the beautiful
-              Château de Lacoste, Dordogne, France.
-            </p>
-          }
-          className="col-start-1 sm:col-start-10 md:col-start-10 lg:col-start-10 col-span-full sm:col-span-10 md:col-span-8 lg:col-span-6 row-start-6"
-        ></LabeledLayout> */}
+        </div>
+        <div className="col-start-2 col-span-5 lg:col-span-3 row-start-4 lg:row-start-2">
+          <motion.picture style={{ y: y2 }} className="relative block">
+            <source srcSet="/image/lacoste-1.avif" type="image/avif" />
+            <motion.img
+              alt="Sample"
+              className={`object-cover block`}
+              style={{
+                height: '100%',
+                width: '100%,',
+              }}
+            />
+
+            <div
+              className="absolute left-0 top-0 h-full w-full"
+              style={{
+                backgroundColor: '#B0B0B0',
+                opacity: 0.25,
+              }}
+            ></div>
+          </motion.picture>
+        </div>
+        <div className="col-start-7 lg:col-start-8 col-span-5 lg:col-span-3 lg:mt-[6rem] row-start-3 lg:row-start-2">
+          <h2 className="eyebrow">The venue</h2>
+          <p className="text mt-[1rem]">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
+            eligendi eius iure omnis sint officia facilis. Sit nam ipsam tenetur adipisci praesentium beatae amet
+            accusantium dolorum voluptas.
+          </p>
+          <a
+            href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x12ab590d5edb6237:0x9247997e9a5c89b9?sa=X&ved=1t:8290&ictx=111"
+            className="link-detail mt-[2rem] inline-block"
+          >
+            To the venue
+          </a>
+        </div>
+        <div className="col-start-3 lg:col-start-2 col-span-5 lg:col-span-3 lg:mt-[12rem] row-start-6 lg:row-start-3">
+          <h2 className="eyebrows">The lodging</h2>
+          <p className="text mt-[1rem]">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae maiores exercitationem aliquid
+            eligendi eius iure omnis sint officia facilis. Sit nam ipsam tenetur adipisci praesentium beatae amet
+            accusantium dolorum voluptas.
+          </p>
+        </div>
+        <div className="col-start-5 lg:col-start-8 col-span-8 lg:col-span-5 row-start-5 lg:row-start-4">
+          <motion.picture style={{ y: y3 }} className="relative block">
+            <source srcSet="/image/lacoste-3.avif" type="image/avif" />
+            <motion.img
+              alt="Sample"
+              className={`object-cover block`}
+              style={{
+                height: '100%',
+                width: '100%,',
+              }}
+            />
+            <div
+              className="absolute left-0 top-0 h-full w-full"
+              style={{
+                backgroundColor: '#B0B0B0',
+                opacity: 0.25,
+              }}
+            ></div>
+          </motion.picture>
+        </div>
       </section>
     </section>
   );

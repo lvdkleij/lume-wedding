@@ -5,8 +5,8 @@ export const HeroSection: React.FC = () => {
   const slowY = useTransform(scrollYProgress, [0, 0.3], [0, 200]);
 
   return (
-    <section className="u-container h-screen">
-      <section className="u-grid h-full">
+    <section className="atlas-container h-screen">
+      <section className="atlas-grid h-full">
         <div className="col-start-1 sm:col-start-10 md:col-start-10 col-span-full self-center">
           <h1 className="flex heading-1 flex-col">
             <span>Melisa</span>

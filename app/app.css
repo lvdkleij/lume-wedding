@@ -55,13 +55,13 @@
     --grid-columns: 12;
   }
 
-  .u-container {
+  .atlas-container {
     max-width: var(--grid-max-width);
     padding-inline: var(--grid-gutter);
     margin-inline: auto;
   }
 
-  .u-grid {
+  .atlas-grid {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
     gap: var(--grid-gutter);
@@ -70,55 +70,37 @@
   html,
   body {
     overflow-x: hidden;
-    overflow-y: scroll;
-    font-family: 'Karol Sans', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    background-color: var(--wedding-cream);
-    /* color: var(--wedding-charcoal); */
+    font-family: 'Karol Sans', sans-serif;
+    background-image: url(/image/background.jpg);
+    overflow-y: hidden;
+    color: #211d1d;
   }
 
   .heading-1 {
     font-family: 'Karol Sans', sans-serif;
-    color: #211d1d;
     font-size: var(--step-5);
     line-height: 1;
-    /* letter-spacing: -0.08333vw; */
     font-weight: 500;
   }
 
   .heading-2 {
     font-family: 'Karol Sans', sans-serif;
-    color: #211d1d;
     font-size: var(--step-4);
     line-height: 0.9;
     letter-spacing: 0.03em;
     font-weight: 300;
   }
 
-  /* Body Text */
-  .body {
-    font-family: 'Karol Sans', sans-serif;
-    color: #211d1d;
+  .text {
     font-size: var(--step-0);
     line-height: 1.48;
     letter-spacing: 0;
     font-weight: 300;
-  }
-
-  .eyebrow {
-    font-family: 'Founders Grotesk' sans-serif;
-    color: #284135;
-    font-size: var(--step--1);
-    line-height: 1;
-    /* letter-spacing: 0.02778vw; */
-    font-weight: 500;
-  }
-
-  .body-md {
-    font-size: var(--step--1);
-    font-weight: 400;
   }
 
   .caption {
@@ -128,15 +110,29 @@
     text-transform: uppercase;
   }
 
-  /* Display / Hero */
-  .display {
-    font-size: var(--step-7);
-    font-weight: 800;
-    line-height: 1.1;
+  .link-detail {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
   }
 
-  h3 {
-    font-size: 3.2rem;
+  .eyebrow {
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    font-weight: 400;
+  }
+
+  .quote {
+    font-size: var(--step-3);
+    letter-spacing: 0.04em;
+    line-height: 0.97;
+    font-weight: 400;
   }
 
   * {

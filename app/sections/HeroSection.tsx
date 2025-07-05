@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="atlas-container h-screen">
       <section className="atlas-grid h-full">
-        <div className="col-start-1 sm:col-start-10 md:col-start-10 col-span-full self-center">
+        <div className="col-start-1 sm:col-start-6 lg:col-start-6 col-span-full self-center">
           <h1 className="flex heading-1 flex-col">
             <span>Melisa</span>
             <span>Lucas</span>

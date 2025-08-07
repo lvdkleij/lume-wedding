@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabaseServer } from '~/utils/supabase.server';
 import type { Route } from './+types/invite.$inviteCode';
-import i18n from 'i18next';
-
 import 'swiper/css';
 import 'swiper/css/parallax';
 import 'swiper/css/mousewheel';
@@ -12,6 +10,7 @@ import { ScheduleSection } from '~/sections/ScheduleSection';
 import { VenueSection } from '~/sections/VenueSection';
 import { InviteMessage } from '~/sections/InviteMessage';
 import { Overlay } from '~/components/Overlay';
+import LanguageSwitcher from '~/components/LanguageSwitcher';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const inviteCode = params.inviteCode;
@@ -51,6 +50,7 @@ export default function InvitePage({ loaderData }: Route.ComponentProps) {
 
   return (
     <>
+      <LanguageSwitcher />
       <Overlay />
       <HeroSection />
       <InviteMessage />

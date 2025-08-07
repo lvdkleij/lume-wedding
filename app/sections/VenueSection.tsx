@@ -39,7 +39,7 @@ export const VenueSection: React.FC = () => {
           src="/image/sample.jpg"
           avif="/image/lacoste-1.avif"
           motionStyle={isLarge ? { y: y2 } : {}}
-          className="relative block col-span-5 col-start-3 sm:col-start-2 sm:col-span-5 lg:col-start-2 lg:col-span-3 row-start-4 lg:row-start-2 mt-[4rem]"
+          className="relative block col-span-5 col-start-3 sm:col-start-2 sm:col-span-5 lg:col-start-2 lg:col-span-3 row-start-4 lg:row-start-2 mt-[3rem]"
           overlayOpacity={0.2}
           aspectRatio={0.7}
         />
@@ -104,10 +104,8 @@ const ImageBlock: React.FC<ImageBlockProps> = ({
         style={{ aspectRatio, height: '100%', width: '100%' }}
       />
     )}
-    <div
-      className="absolute left-0 top-0 h-full w-full"
-      style={{ backgroundColor: '#B66E3C', opacity: overlayOpacity }}
-    />
+    <div className="absolute left-0 top-0 h-full w-full" style={{ backgroundColor: '#B66E3C', opacity: 0.1 }} />
+    <div className="absolute left-0 top-0 h-full w-full" style={{ backgroundColor: 'grey', opacity: 0.1 }} />
   </motion.picture>
 );
 
